@@ -5,7 +5,11 @@ import Search from './view/components/global/Search';
 class App extends React.Component {
   constructor() {
     super();
-
+    this.state = {
+      city: "",
+      country: "",
+    }
+    console.log(this.state);
   }
   render() {
     return (
