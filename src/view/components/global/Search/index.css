@@ -2,7 +2,7 @@
     background-image: url("./../../../../core/images/wave.jpg");
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -10,11 +10,18 @@
 }
 
 .space_container{
+    background-color: #fff;
+    border-radius: 12px;
     width: 90%;
-    height: 80px;
+    height: 140px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
+    padding: 20px;
+    opacity: 0.9;
+}
 
+.space_container{
+    align-items: self-end;
 }

@@ -1,65 +1,3 @@
-// const cities = [
-//     {
-//         value: "dubai",
-//         label: "Dubai"
-//     },
-//     {
-//         value: "abuDhabi",
-//         label: "Abu Dhabi"
-//     },
-//     {
-//         value: "moscow",
-//         label: "Moscow"
-//     },
-//     {
-//         value: "prague",
-//         label: "Prague"
-//     },
-//     {
-//         value: "ayiaNapa",
-//         label: "Ayia Napa"
-//     },
-//     {
-//         value: "doha",
-//         label: "Doha"
-//     },
-//     {
-//         value: "vienna",
-//         label: "Vienna"
-//     }
-// ]
-
-// const countries = [
-//     {
-//         value: "uae",
-//         label: "UAE"
-//     },
-//     {
-//         value: "russia",
-//         label: "Russia"
-//     },
-//     {
-//         value: "austria",
-//         label: "Austria"
-//     },
-//     {
-//         value: "cyprus",
-//         label: "Cyprus"
-//     },
-//     {
-//         value: "prague",
-//         label: "Prague"
-//     },
-//     {
-//         value: "qatar",
-//         label: "Qatar"
-//     },
-//     {
-//         value: "unitedStates",
-//         label: "United States"
-//     }
-// ]
-
 const treeData = [
     {
         title: "UAE",
@@ -110,6 +48,8 @@ const treeData = [
         ]
     },
 ]
+
+
 
 export {
     treeData

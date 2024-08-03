@@ -6,7 +6,9 @@
    color: #fff;
 }
 
-.main_header h3 {
-    color: #fff;
-    margin: 0;
+.logo{
+    height: 120px;
+    max-width: auto;
+    display: flex;
+    align-items: center;
 }

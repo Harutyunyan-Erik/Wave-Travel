@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
-import { Layout, Button, Typography, Space } from 'antd';
+import { Layout, Button, Space } from 'antd';
+import  myLogo  from '../../../../core/images/logo2.jpg'
 import './index.css';
 
 const Header = () => {
     return (
         <Layout.Header className="main_header">
-           <Typography.Title level={3}>
-                Wave Travel
-           </Typography.Title>
+            <a>
+                <img src={myLogo} alt="My Logo" className="logo" />
+            </a>
+
+
 
            <Space>
                 About
