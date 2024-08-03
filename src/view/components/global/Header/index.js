@@ -5,12 +5,8 @@ import './index.css';
 const Header = () => {
     return (
         <Layout.Header className="main_header">
-            <a>
-                <img src={myLogo} alt="My Logo" className="logo" />
-            </a>
-
-
-
+            <img src={myLogo} alt="My Logo" className="logo" />
+            
            <Space>
                 About
                 Contact
