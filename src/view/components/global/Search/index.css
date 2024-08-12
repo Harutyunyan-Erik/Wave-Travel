@@ -1,4 +1,7 @@
-.search_container{
+/* index.css */
+
+/* General container styling with background image */
+.search_container {
     background-image: url("./../../../../core/images/wave.jpg");
     background-size: cover;
     background-position: center;
@@ -9,19 +12,32 @@
     align-items: center;
 }
 
-.space_container{
+/* Adjusting the form container */
+.space_container {
     background-color: #fff;
     border-radius: 12px;
     width: 90%;
-    height: 140px;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
     padding: 20px;
     opacity: 0.9;
 }
 
-.space_container{
+/* Adjusting the alignment to self-end */
+.space_container {
     align-items: self-end;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .space_container {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        width: 70%;
+        padding: 10px;
+    }
+
+    .search_container {
+        padding: 0 10px;
+    }
 }
