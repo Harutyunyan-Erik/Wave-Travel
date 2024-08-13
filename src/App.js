@@ -1,24 +1,64 @@
-import React from 'react';
-import Header from './view/components/global/Header';
+import React, { useState, useEffect } from 'react';
 import Search from './view/components/global/Search';
+import MainLayout from './view/layouts/MainLayout';
+import LoadingWrapper from './view/components/shared/LoadingWrapper';
+import { AuthContextProvider } from './context/AuthContext';
+import { Login, Register } from './view/pages/auth/';
+import { db, auth, doc, getDoc, onAuthStateChanged } from './services/firebase';
+import {  
+  Route, 
+  RouterProvider,
+  createHashRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      city: "",
-      country: "",
-    }
-    console.log(this.state);
-  }
-  render() {
+const route = createHashRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+        <Route index element={<Search />} />  {/* Default route shows Search */}
+        <Route path="login" element={<Login />}/>
+        <Route path="register" element={<Register />}/>
+    </Route>
+  )
+);
+
+const App = () => {
+    const [isAuth, setIsAuth] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [userProfileInfo, setUserProfileInfo] = useState({
+        city: "",
+        country: "",
+    });
+
+    useEffect(() => {
+      setLoading(true);
+      
+      onAuthStateChanged(auth, (user) => { 
+        setLoading(false)
+  
+        if (user) {
+          setIsAuth(true);
+            const { uid } = user;
+            const ref = doc(db, 'registerUsers', uid);
+  
+            getDoc(ref).then((userData) => {
+              if (userData.exists()) {
+                setUserProfileInfo(userData.data()) 
+              }
+            })
+        } else {
+  
+        }
+      })
+    }, [])
+  
     return (
-      <div>
-        <Header />
-        <Search />
-      </div>
+      <LoadingWrapper loading={loading} fullScreen>
+        <AuthContextProvider value={{ isAuth, userProfileInfo, setIsAuth }}>
+          <RouterProvider router={route}/>
+        </AuthContextProvider>
+    </LoadingWrapper>
     )
-  }
 }
 
-export default App
+export default App;
