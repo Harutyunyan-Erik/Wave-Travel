@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TreeSelect, DatePicker, Button, InputNumber, Form } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { treeData } from '../../../../core/constants/issue';
+import { treeData } from '../../../../../core/constants/issue';
 import './index.css'
 
 const { RangePicker } = DatePicker;
@@ -73,7 +73,7 @@ const Search = () => {
                         defaultValue={2}
                         onChange={onChangePerson}
                         style={{
-                            width: '50%',
+                            width: '80%',
                         }}
                     />
                 </Form.Item>
@@ -92,7 +92,7 @@ const Search = () => {
                         defaultValue={0}
                         onChange={onChangePerson}
                         style={{
-                            width: '50%',
+                            width: '80%',
                         }}
                     />
                 </Form.Item>
@@ -106,6 +106,7 @@ const Search = () => {
                 </Button>
             </Form>
         </div>
+        
     )
 }
 

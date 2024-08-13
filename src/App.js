@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Search from './view/components/global/Search';
+import Search from './view/components/global/MainPage/Search';
 import MainLayout from './view/layouts/MainLayout';
+import Offers from './view/components/global/MainPage/Offers';
 import LoadingWrapper from './view/components/shared/LoadingWrapper';
 import { AuthContextProvider } from './context/AuthContext';
-import { Login, Register } from './view/pages/auth/';
+import MainPage from './view/components/global/MainPage';
+import { Login, Register } from './view/pages/auth';
 import { db, auth, doc, getDoc, onAuthStateChanged } from './services/firebase';
 import {  
   Route, 
@@ -15,7 +17,7 @@ import {
 const route = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-        <Route index element={<Search />} />  {/* Default route shows Search */}
+        <Route index element={<MainPage />} /> 
         <Route path="login" element={<Login />}/>
         <Route path="register" element={<Register />}/>
     </Route>
