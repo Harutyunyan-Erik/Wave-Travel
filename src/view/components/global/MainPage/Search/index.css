@@ -1,8 +1,9 @@
 .search_container {
-    background-image: url("./../../../../core/images/wave.jpg");
+    background-image: url("./../../../../../core/images/wave.jpg");
     background-size: cover;
     background-position: center;
     height: 70vh;
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +18,7 @@
     grid-gap: 10px;
     padding: 20px;
     opacity: 0.9;
+    max-height: 100%;
 }
 
 .space_container {
