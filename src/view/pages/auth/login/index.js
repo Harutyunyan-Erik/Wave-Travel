@@ -4,7 +4,6 @@ import { auth } from '../../../../services/firebase';
 import { Typography, Input, Button, Divider, Form, Flex, notification } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthWrapper from '../../../components/shared/AuthWrapper';
-import airplaneImg from '../../../../core/images/airplane.jpg';
 
 
 const { Title, Text } = Typography;

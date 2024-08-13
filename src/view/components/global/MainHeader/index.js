@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Layout, Button, Typography, Space } from 'antd';
+import { Layout, Button, Space } from 'antd';
 import UserProfile from '../../shared/UserProfile';
 import { AuthContext } from '../../../../context/AuthContext';
 import { Link } from 'react-router-dom';
