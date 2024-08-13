@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
 import MainHeader from '../../components/global/MainHeader';
-import Offers from '../../components/global/MainPage/Offers';
 import './index.css';
 
 const MainLayout = () => {
@@ -11,7 +10,6 @@ const MainLayout = () => {
         <main>
           <Outlet />
         </main>
-        {/* <Offers /> */}
       </div>
     )
 };
