@@ -18,5 +18,5 @@ const db = getFirestore(app);
 
 
 export {
-    app, auth, db, getDocs, getDoc, collection, getFirestore, setDoc, doc, onAuthStateChanged
+    app, auth, db, getFirestore, setDoc, getDocs, doc, getDoc, collection, onAuthStateChanged
 }

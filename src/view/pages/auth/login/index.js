@@ -20,7 +20,7 @@ const Login = () => {
         try{
             const { email, password } = values;
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/cabinet');
+            navigate('/');
         }catch(error) {
             notification.error({
                 message: 'Error',
