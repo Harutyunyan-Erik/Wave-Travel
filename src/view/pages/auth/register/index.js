@@ -26,6 +26,11 @@ const Register = () => {
                 email, ...restData
             });
             navigate('/login');
+
+            notification.success({
+                message: 'Done',
+                description: 'Thank you for choosing us!.',
+            });
         }catch{
             notification.error({
                 message: 'Wrong Registration',
