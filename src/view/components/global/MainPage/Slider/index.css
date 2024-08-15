@@ -1,0 +1,20 @@
+.carousel_container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.carousel_container .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel_container img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
