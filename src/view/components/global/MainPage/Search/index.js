@@ -12,8 +12,6 @@ const Search = () => {
     const [selectedCity, setSelectedCity] = useState(null);
     const [availableHotels, setAvailableHotels] = useState([]);
     const [childrenCountValue, setChildrenCount] = useState(0);
-    const [adultsCount, setAdultsCount] = useState(2);
-    const [infantsCount, setInfantsCount] = useState(0);
     const [ages, setAges] = useState([]);
     const [selectedMeals, setSelectedMeals] = useState([]);
 
@@ -63,7 +61,7 @@ const Search = () => {
                 count: values.children,
                 ...childrenAges,
             },
-            meals: selectedMeals // Add selected meals here
+            meals: selectedMeals 
         };
         console.log('Form values:', formValues);
     };
@@ -142,7 +140,6 @@ const Search = () => {
                         addonBefore={<UserOutlined />}
                         min={1}
                         max={5}
-                        onChange={(value) => setAdultsCount(value)}
                         style={{ width: '80%' }}
                     />
                 </Form.Item>
