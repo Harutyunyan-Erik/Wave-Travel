@@ -2,7 +2,6 @@
     background-image: url("./../../../../../core/images/wave.jpg");
     background-size: cover;
     background-position: center;
-    height: 70vh;
     margin-top: auto;
     padding: 20px;
     display: flex;
@@ -16,10 +15,10 @@
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    padding: 20px;
+    padding: 25px;
     opacity: 0.9;
     max-height: 100%;
+    margin: auto;
 }
 
 .space_container {

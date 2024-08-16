@@ -4,6 +4,8 @@ import LoadingWrapper from './view/components/shared/LoadingWrapper';
 import { AuthContextProvider } from './context/AuthContext';
 import MainPage from './view/components/global/MainPage';
 import { Login, Register } from './view/pages/auth';
+import  HotelSearch  from './view/components/global/HotelSearch';
+import { HotelSearchProvider } from './view/components/global/HotelSearch/HotelSearchProvider';
 import { db, auth, doc, getDoc, onAuthStateChanged } from './services/firebase';
 import {  
   Route, 
@@ -16,8 +18,9 @@ const route = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
         <Route index element={<MainPage />} /> 
-        <Route path="login" element={<Login />}/>
-        <Route path="register" element={<Register />}/>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="hotel-search" element={<HotelSearch />} />
     </Route>
   )
 );
@@ -34,31 +37,31 @@ const App = () => {
       setLoading(true);
       
       onAuthStateChanged(auth, (user) => { 
-        setLoading(false)
+        setLoading(false);
   
         if (user) {
           setIsAuth(true);
-            const { uid } = user;
-            const ref = doc(db, 'registerUsers', uid);
+          const { uid } = user;
+          const ref = doc(db, 'registerUsers', uid);
   
             getDoc(ref).then((userData) => {
               if (userData.exists()) {
                 setUserProfileInfo(userData.data()) 
               }
-            })
-        } else {
-  
+            });
         }
-      })
-    }, [])
-  
+      });
+    }, []);
+
     return (
       <LoadingWrapper loading={loading} fullScreen>
         <AuthContextProvider value={{ isAuth, userProfileInfo, setIsAuth }}>
-          <RouterProvider router={route}/>
+          <HotelSearchProvider>
+            <RouterProvider router={route}/>
+          </HotelSearchProvider>
         </AuthContextProvider>
-    </LoadingWrapper>
-    )
+      </LoadingWrapper>
+    );
 }
 
 export default App;

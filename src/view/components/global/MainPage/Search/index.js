@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { TreeSelect, DatePicker, Button, InputNumber, Form, Select, Flex } from 'antd';
+import { TreeSelect, DatePicker, Button, InputNumber, Form, Select } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import MealTypeDropdown from './MealTypeDropdown';
+import { useFormValues } from '../../HotelSearch/HotelSearchProvider'; 
 import { treeData, hotels, staticChildrenCount, childrenAge } from '../../../../../core/constants/issue';
 import './index.css';
+import { useNavigate } from 'react-router-dom';
 
 const { RangePicker } = DatePicker;
 const dateFormat = "YYYY/MM/DD";
@@ -13,9 +15,11 @@ const Search = () => {
     const [availableHotels, setAvailableHotels] = useState([]);
     const [childrenCountValue, setChildrenCount] = useState(0);
     const [adultsCount, setAdultsCount] = useState(2);
-    const [infantsCount, setInfantsCount] = useState(0);
     const [ages, setAges] = useState([]);
     const [selectedMeals, setSelectedMeals] = useState([]);
+
+    const { setFormValues } = useFormValues();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (selectedCity) {
@@ -58,14 +62,18 @@ const Search = () => {
             city: values.city,
             hotel: values.hotel,
             dates: values.dates,
-            adults: values.adults,
+            adults: adultsCount,
             children: {
                 count: values.children,
                 ...childrenAges,
             },
-            meals: selectedMeals // Add selected meals here
+            meals: selectedMeals
         };
         console.log('Form values:', formValues);
+
+        setFormValues(formValues);
+
+        navigate('/hotel-search');
     };
 
     return (
@@ -96,39 +104,37 @@ const Search = () => {
                         onChange={onChangeCities}
                     />
                 </Form.Item>
-                <Flex >
-                    <Form.Item
-                        label="Select Hotel"
-                        name="hotel"
-                        style={{ width: '70%' }}
-                    >
-                        <Select
-                            showSearch
-                            placeholder="Select a hotel"
-                            optionFilterProp="children"
-                            style={{ width: '80%' }}
-                        >
-                            {availableHotels.map(hotel => (
-                                <Select.Option key={hotel.value} value={hotel.value}>
-                                    {hotel.label}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
 
-                    <Form.Item
-                        label="Meal Type"
-                        name="mealType"
-                        style={{ width: '70%' }}
+                <Form.Item
+                    label="Select Hotel"
+                    name="hotel"
+                    style={{ width: '70%' }}
+                >
+                    <Select
+                        showSearch
+                        placeholder="Select a hotel"
+                        optionFilterProp="children"
+                        style={{ width: '80%' }}
                     >
-                        <MealTypeDropdown onMealTypeChange={setSelectedMeals} />
-                    </Form.Item>
-                </Flex>
+                        {availableHotels.map(hotel => (
+                            <Select.Option key={hotel.value} value={hotel.value}>
+                                {hotel.label}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </Form.Item>
+
+                <Form.Item
+                    label="Meal Type"
+                    name="mealType"
+                    style={{ width: '70%' }}
+                >
+                    <MealTypeDropdown onMealTypeChange={setSelectedMeals} />
+                </Form.Item>
 
                 <Form.Item
                     label="Check-in & Check-out"
                     name="dates"
-                    style={{ width: '80%' }}
                 >
                     <RangePicker format={dateFormat} />
                 </Form.Item>
@@ -147,60 +153,56 @@ const Search = () => {
                     />
                 </Form.Item>
 
-                <Flex>
+                <Form.Item
+                    label="Children"
+                    name="children"
+                    style={{ width: '70%' }}
+                >
+                    <Select
+                        showSearch
+                        placeholder="Select number of children"
+                        optionFilterProp="children"
+                        onChange={onChangeChildren}
+                        style={{ width: '80%' }}
+                    >
+                        {staticChildrenCount.map(count => (
+                            <Select.Option key={count.value} value={count.value}>
+                                {count.label}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </Form.Item>
+
+                {ages.map((_, index) => (
                     <Form.Item
-                        label="Children"
-                        name="children"
+                        key={index}
+                        label={`Age of Child`}
+                        name={`age_${index}`}
                         style={{ width: '70%' }}
                     >
                         <Select
                             showSearch
-                            placeholder="Select number of children"
+                            placeholder="Select Age"
                             optionFilterProp="children"
-                            onChange={onChangeChildren}
+                            onChange={(value) => onChangeAge(index, value)}
                             style={{ width: '80%' }}
                         >
-                            {staticChildrenCount.map(count => (
-                                <Select.Option key={count.value} value={count.value}>
-                                    {count.label}
+                            {childrenAge.map(age => (
+                                <Select.Option key={age.value} value={age.value}>
+                                    {age.label}
                                 </Select.Option>
                             ))}
                         </Select>
                     </Form.Item>
-
-                    {ages.map((_, index) => (
-                        <Form.Item
-                            key={index}
-                            label={`Age of Child`}
-                            name={`age_${index}`}
-                            style={{ width: '70%' }}
-                        >
-                            <Select
-                                showSearch
-                                placeholder="Select Age"
-                                optionFilterProp="children"
-                                onChange={(value) => onChangeAge(index, value)}
-                                style={{ width: '80%' }}
-                            >
-                                {childrenAge.map(age => (
-                                    <Select.Option key={age.value} value={age.value}>
-                                        {age.label}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </Form.Item>
-                    ))}
-                </Flex>   
-                               
-                <Flex justify="flex-end" width="100%">
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        style={{ width: 100 }}
-                    >
-                        Search
-                    </Button>
-                </Flex>
+                ))}
+               
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                    style={{ width: 100 }}
+                >
+                    Search
+                </Button>
             </Form>
         </div>
     );
