@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Input, Button, Divider, Form, notification, Flex } from 'antd';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, setDoc, doc, db } from '../../../../services/firebase';
+import { auth, setDoc, doc, db } from '../../../../services/Firebase/firebase';
 import AuthWrapper from '../../../components/shared/AuthWrapper';
 // import airplaneImg from '../../../../core/images/airplane.jpg';
 import { Link, useNavigate } from 'react-router-dom';

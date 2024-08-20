@@ -11,7 +11,7 @@ const checkboxOptions = [
 
 const MealTypeDropdown = ({ onMealTypeChange }) => {
     const [selectedItems, setSelectedItems] = useState([]);
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const onCheckboxChange = (checkedValues) => {
         setSelectedItems(checkedValues);
@@ -40,10 +40,10 @@ const MealTypeDropdown = ({ onMealTypeChange }) => {
         <Dropdown
             overlay={menu}
             trigger={['click']}
-            visible={dropdownVisible}
-            onVisibleChange={(flag) => setDropdownVisible(flag)}
+            open={dropdownOpen}
+            onOpenChange={(open) => setDropdownOpen(open)}
         >
-            <Button onClick={() => setDropdownVisible(!dropdownVisible)}>
+            <Button onClick={() => setDropdownOpen(!dropdownOpen)}>
                 {renderButtonText()}
             </Button>
         </Dropdown>

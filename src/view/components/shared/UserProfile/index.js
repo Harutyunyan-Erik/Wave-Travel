@@ -1,7 +1,7 @@
 import { Avatar, Dropdown, Typography, Flex, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../../../services/firebase';
+import { auth } from '../../../../services/Firebase/firebase';
 import { getFirstLetters } from '../../../../core/helpers/getFirstLetters';
 
 const { Text } = Typography;

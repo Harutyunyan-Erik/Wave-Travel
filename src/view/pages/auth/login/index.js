@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../../services/firebase';
+import { auth } from '../../../../services/Firebase/firebase';
 import { Typography, Input, Button, Divider, Form, Flex, notification } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthWrapper from '../../../components/shared/AuthWrapper';
