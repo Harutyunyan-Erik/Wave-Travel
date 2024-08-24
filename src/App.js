@@ -17,7 +17,7 @@ import {
 const route = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-        <Route index element={<MainPage />} /> 
+        <Route index element={<HotelSearch />} /> 
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="hotel-search" element={<HotelSearch />} />
