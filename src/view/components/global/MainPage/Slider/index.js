@@ -4,7 +4,7 @@ import './index.css';
 const Slider = () => {
     return (
         <div>
-            <Carousel autoplay className="carousel_container" >
+            <Carousel autoplay className="carousel_container" dots={true}>
                 <div>
                     <img src="https://media.istockphoto.com/id/1331100622/photo/view-of-buildings-streets-beautiful-in-various-angles-in-dubai.jpg?s=612x612&w=0&k=20&c=M5GXmSOPo8VljM06CIJqKRgAlEPZkqwmNP-_rtzScec=" alt="example" />
                 </div>
@@ -18,7 +18,7 @@ const Slider = () => {
                 </div>
             </Carousel>
         </div>
-    )
+    );
 };
 
 export default Slider;

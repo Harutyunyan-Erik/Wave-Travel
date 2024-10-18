@@ -83,7 +83,7 @@ const Favorites = () => {
                             dataSource={[
                                 'Location: Dubai, The Palm Jumeirah',
                                 'BeachFront: Yes',
-                                'Description: Located on the crescent of the Palm Island in Dubai, next to Atlantis, The Palm and Aquaventure Waterpark, Atlantis The Royal offers access to Aquaventure, the largest waterpark in the Middle East, 17 restaurants and bars, nightclubs, show fountain, outdoor swimming pools, beach clubs, a state-of-the-art spa, and free private parking. With free WiFi, this 5-star resort has a sky pool and a private beach, a 24-hour front desk, room service and currency exchange for guests. Selected rooms also feature a kitchen with a minibar.',
+                                'Description: Located on Palm Island in Dubai, Atlantis The Royal offers access to Aquaventure Waterpark, 17 restaurants, beach clubs, pools, a spa, and free parking. The 5-star resort includes free WiFi, a sky pool, private beach, 24-hour front desk, and select rooms with kitchens and minibars.',
                                 "Price: Starting from $150 per night for 2 adults"
                             ]}
                             renderItem={item => (
@@ -113,7 +113,7 @@ const Favorites = () => {
                             dataSource={[
                                 'Location: Dubai',
                                 'BeachFront: No',
-                                'Description: Attractively located in the centre of Dubai, Address Sky View features air-conditioned rooms with free WiFi, free private parking and room service. This 5-star hotel offers an ATM and a concierge service. The property has a seasonal outdoor pool, fitness centre, sauna and free bikes.',
+                                'Description: Located in central Dubai, Address Sky View offers modern, air-conditioned rooms with free WiFi, private parking, and 24-hour room service. Guests can enjoy a seasonal outdoor pool, a fully equipped fitness center, a relaxing sauna, and complimentary bike rentals to explore the city.',
                                 "Price: Starting from $150 per night for 2 adults"
                             ]}
                             renderItem={item => (

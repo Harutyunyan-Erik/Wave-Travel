@@ -1,74 +1,162 @@
 .special_main_container {
     max-width: 1200px;
-    margin: 10px auto;
-    border: 1px solid rgb(246, 246, 246);
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 18px;
-    background-color: rgb(246, 246, 246);
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.ant-segmented-item-selected {
-    background: red;
-  }
 
 .header_section {
     text-align: center;
-    margin-bottom: 24px; 
+    margin-bottom: 24px;
 }
 
-.header_title {
-    margin-bottom: 16px;
-    font-size: 24px; 
-    font-weight: bold;
-    color: #333; 
-}
-
+/* Segmented Control Styling */
 .segmented_control {
-    margin-top: 8px; 
-    font-size: 27px;
-    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    display: inline-flex;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
 
+.ant-segmented-item {
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.8s ease, color 0.8s ease;
+    font-weight: 500;
+    font-size: 16px;
+    transition-duration: 0.8s;
+}
 
+.ant-segmented-item-selected {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    transition-duration: 0.8s;
+}
+
+.ant-segmented-item:hover {
+    background-color: #007bff;
+    transition: 0.5s;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.8s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .segmented_control {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+/* Card Grid Layout */
+/* Grid Layout */
 .card_grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr); /* Single column on mobile */
     gap: 16px;
     justify-content: center;
-    margin: 0 auto;
-    max-width: 70%;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
 @media (min-width: 576px) {
     .card_grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Two columns on tablet */
     }
 }
 
 @media (min-width: 992px) {
     .card_grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
     }
 }
 
+/* Card Styling */
 .card_container {
-    width: 100%;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    justify-content: space-between; /* Ensure content and button are spaced */
+    background-color: #fff;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%; /* Ensure cards take up full height */
+    position: relative; /* Relative for absolutely positioning the button */
+    padding: 20px;
 }
 
+/* Image inside the card */
 .card_container img {
     width: 100%;
-    height: 150px;
-    object-fit: cover; 
+    height: 180px;
+    object-fit: cover;
     display: block;
+    border-bottom: 1px solid #ddd;
 }
 
-.card_content .ant-list-item {
-    padding: 4px 0;
-    margin: 0;
+/* Title for hotel name */
+.card_content .title {
+    min-height: 50px; /* Ensure all titles have the same height */
+    display: flex;
+    align-items: center;
 }
 
-h2 {
-    margin-bottom: 16px;
+/* Content inside the card */
+.card_content {
+    flex-grow: 1; /* Ensures content takes up remaining space */
+    padding: 15px 0;
+}
+
+.card_content p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 14px;
+}
+
+/* List of hotel details */
+.card_content .hotel_details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card_content .hotel_details > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.card_content .hotel_details strong {
+    display: block;
+    min-width: 120px; /* To ensure consistent alignment across columns */
+}
+
+.card_content .hotel_details span {
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* More Button */
+.card_container .ant-btn-primary {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card_container .ant-btn-primary:hover {
+    background-color: #0056b3;
 }
