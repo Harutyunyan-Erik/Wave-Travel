@@ -4,6 +4,7 @@ import { auth } from '../../../../services/firebase';
 import { Typography, Input, Button, Divider, Form, Flex, notification } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthWrapper from '../../../components/shared/AuthWrapper';
+import '../index.css';
 
 
 const { Title, Text } = Typography;
@@ -31,7 +32,8 @@ const Login = () => {
     }
 
     return (
-        <AuthWrapper className="container_authWrapper">
+        <div className="barev">
+<AuthWrapper className="container_authWrapper">
             <Title level={3}>
                 Sign In
             </Title>
@@ -88,6 +90,8 @@ const Login = () => {
                 </Flex>
             </Form>
         </AuthWrapper>
+        </div>
+        
     )
 }
 

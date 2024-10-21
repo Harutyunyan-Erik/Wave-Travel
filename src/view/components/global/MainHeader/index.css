@@ -1,15 +1,140 @@
-.main_header{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   box-shadow: 1px 1px 1px #ccc; 
-   color: #fff;
-}
-
-.logo{
-    height: 120px;
-    max-width: auto;
+/* Main header styling */
+.main_header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
+    box-shadow: 1px 1px 1px #ccc; 
+    color: #fff;
+ }
+ 
+ /* Logo styling */
+ .logo {
+     height: 120px;
+     display: flex;
+     align-items: center;
+ }
+ 
+ /* Notification icon color */
+ .notification_icon {
+     color: white;
+ }
+ 
+ /* SVG icon sizing */
+ .anticon svg {
+     height: 25px;
+     width: 40px;
+ }
+ 
+ /* Styling for notification, heart, and dropdown icons */
+ .notification-icon,
+ .heart-icon,
+ .dropdown-icon {
+     cursor: pointer;
+     margin-right: 15px; /* Space between icons */
+     background: none;
+     color: white;
+     transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+ }
+ 
+ /* Hover effects for the icons */
+ .notification-icon:hover,
+ .heart-icon:hover,
+ .dropdown-icon:hover {
+     transform: scale(1.2); /* Slight enlargement on hover */
+     color: #007bff; /* Change to a lighter blue on hover */
+ }
+ .dropdown-icon{
+    margin-top: 20px;
+ }
+ 
+ /* Styling for the Notification Popover content */
+ .notification-content {
+     padding: 20px;
+     background-color: rgba(0, 0, 0, 0.8); /* Transparent dark background */
+     border-radius: 12px; /* Softer corners */
+     box-shadow: none; /* Remove box shadow */
+     min-width: 250px;
+     color: white; /* White text to contrast with background */
+ }
+ 
+ /* Popover arrow styling */
+ .notification-content::before {
+     content: '';
+     position: absolute;
+     top: -10px; /* Position arrow above popover */
+     left: 20px; /* Adjust as needed */
+     border-width: 10px;
+     border-style: solid;
+     border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent; /* Match popover background */
+ }
+ 
+ /* Notification header */
+ .notification-content h4 {
+     margin-bottom: 10px;
+     font-weight: bold;
+     color: #fff; /* White header text */
+     font-size: 18px;
+ }
+ 
+ /* Centered notification message */
+ .notification-content .flex-center {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 50px;
+     color: #ccc; /* Light gray text for better visibility */
+     font-size: 14px;
+ }
+ 
+ /* Dropdown Menu Popover Content Styling */
+ .dropdown-content {
+     padding: 20px;
+     background-color: white;
+     border-radius: 12px; /* Softer corners */
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more polished look */
+     display: flex;
+     flex-direction: column;
+     gap: 12px; /* More space between dropdown items */
+     min-width: 200px; /* Ensure the dropdown has enough space */
+ }
+ 
+ /* Dropdown links */
+ .dropdown-content a {
+     color: #034762;
+     text-decoration: none;
+     font-size: 16px;
+     transition: color 0.3s ease;
+ }
+ 
+ /* Dropdown links hover effect */
+ .dropdown-content a:hover {
+     color: #007bff; /* Lighter blue on hover */
+ }
+ 
+ /* Icons container layout */
+ .icon-container {
+     display: flex;
+     align-items: center;
+     justify-content: flex-end; /* Push icons to the right */
+     gap: 15px; /* Space between icons */
+ }
+ 
+ /* Notification Bell Counter (if you want to show a counter on the bell) */
+ .notification-badge {
+     position: relative;
+     top: -10px;
+     right: -10px;
+     background-color: #ff4d4f;
+     color: white;
+     border-radius: 50%;
+     padding: 4px 8px;
+     font-size: 12px;
+     font-weight: bold;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .notification_icon{
+    background: none;
+    color: white;
+ }

@@ -6,8 +6,6 @@ import AuthWrapper from '../../../components/shared/AuthWrapper';
 // import airplaneImg from '../../../../core/images/airplane.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 
-import './index.css';
-
 const { Title, Text } = Typography;
 
 const Register = () => {
@@ -42,7 +40,7 @@ const Register = () => {
     }
 
     return (
-        <AuthWrapper>
+        <AuthWrapper >
             <Title level={2}>
                 Register
             </Title>

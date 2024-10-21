@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Layout, Button, Space } from 'antd';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 import UserProfile from '../../shared/UserProfile';
 import { AuthContext } from '../../../../context/AuthContext';
 import { Link } from 'react-router-dom';
@@ -18,7 +19,8 @@ const MainHeader = () => {
             </Link>
             
            <Space>
-           {
+            <div>
+                {
                     isAuth ? (
                         <UserProfile setIsAuth={setIsAuth} userProfileInfo={userProfileInfo} />
                     ) : (
@@ -29,6 +31,20 @@ const MainHeader = () => {
                         </Link>
                     )
                 }
+            </div>
+            <div>
+                <DropdownMenu />
+            </div>
+
+            {/* <div>
+                {
+                    isAuth ? (
+                        <>
+                            <DropdownMenu />
+                        </>
+                    ) : ( " ")
+                }
+            </div> */}
            </Space>
         </Layout.Header>
         
