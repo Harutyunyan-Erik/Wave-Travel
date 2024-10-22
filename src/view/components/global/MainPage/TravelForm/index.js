@@ -27,6 +27,7 @@ const emailParams = {
   children: values.children,           // Corresponds to {{children}} in the template
   babies: values.babies,               // Corresponds to {{babies}} in the template
   transfer: values.transfer,           // Corresponds to {{transfer}} in the template
+  tickets: values.tickets,
   mealType: values.mealType,           // Corresponds to {{mealType}} in the template
 };
 
@@ -57,7 +58,8 @@ const emailParams = {
           adults: 1,
           children: 0,
           babies: 0,
-          transfer: 'No',
+          transfer: 'Yes',
+          tickets: "Yes",
           mealType: 'BB',
         }}
       >
@@ -125,29 +127,31 @@ const emailParams = {
 
         {/* Number of Persons */}
         <Form.Item label="Number of Persons">
-          <Form.Item
-            name="adults"
-            label="Adults (12+)"
-            rules={[{ required: true, message: 'Please input the number of adults!' }]}
-            style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-          >
-            <InputNumber min={1} max={10} style={{ width: '80%' }} />
-          </Form.Item>
-          <Form.Item
-            name="children"
-            label="Children (2-11)"
-            style={{ display: 'inline-block', width: 'calc(33% - 8px)', margin: '0 8px' }}
-          >
-            <InputNumber min={0} max={10} style={{ width: '80%' }}/>
-          </Form.Item>
-          <Form.Item
-            name="babies"
-            label="Babies (0-2)"
-            style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-          >
-            <InputNumber min={0} max={5} style={{ width: '80%' }} />
-          </Form.Item>
+          <div className="person-input-container">
+            <Form.Item
+              name="adults"
+              label="Adults (12+)"
+              rules={[{ required: true, message: 'Please input the number of adults!' }]}
+            >
+              <InputNumber min={1} max={10} style={{ width: '100%' }} />
+            </Form.Item>
+
+            <Form.Item
+              name="children"
+              label="Children (2-11)"
+            >
+              <InputNumber min={0} max={5} style={{ width: '100%' }} />
+            </Form.Item>
+
+            <Form.Item
+              name="babies"
+              label="Babies (0-2)"
+            >
+              <InputNumber min={0} max={5} style={{ width: '100%' }} />
+            </Form.Item>
+          </div>
         </Form.Item>
+
 
         {/* Transfer */}
         <Form.Item
@@ -159,6 +163,19 @@ const emailParams = {
             <Radio value="Yes">Yes</Radio>
             <Radio value="No">No</Radio>
           </Radio.Group>
+        </Form.Item>
+
+        
+        {/* Tickets */}
+        <Form.Item
+            name="tickets"
+            label="Tickets"
+            rules={[{ required: true, message: 'Please select if you need a Tickets!' }]}
+        >
+            <Radio.Group>
+                <Radio value="Yes">Yes</Radio>
+                <Radio value="No">No</Radio>
+            </Radio.Group>
         </Form.Item>
 
         {/* Meal Types */}

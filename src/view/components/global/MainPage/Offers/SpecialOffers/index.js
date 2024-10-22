@@ -27,18 +27,19 @@ const SpecialOffers = () => {
     // Handle form submission
     const onFinish = (values) => {
         const emailParams = {
-            email: values.email,
-            phone: values.phoneNumber,
-            region: values.region,  // Take the region from the form (editable)
-            hotel: values.hotel,    // Take the hotel name from the form (editable)
+            email: values.email,                 // Corresponds to {{email}} in the template
+            phone: values.phoneNumber,           // Corresponds to {{phone}} in the template
+            region: values.region,               // Corresponds to {{region}} in the template
+            hotel: values.hotel,                 // Corresponds to {{hotel}} in the template
             dates: values.dates ? values.dates.map(date => date.format('YYYY-MM-DD')).join(' to ') : '',
-            budget: `$${values.budget}`,
-            adults: values.adults,
-            children: values.children,
-            babies: values.babies,
-            transfer: values.transfer,
-            mealType: values.mealType,
-        };
+            budget: `$${values.budget}`,          // Corresponds to {{budget}} in the template
+            adults: values.adults,               // Corresponds to {{adults}} in the template
+            children: values.children,           // Corresponds to {{children}} in the template
+            babies: values.babies,               // Corresponds to {{babies}} in the template
+            transfer: values.transfer,           // Corresponds to {{transfer}} in the template
+            tickets: values.tickets,
+            mealType: values.mealType,           // Corresponds to {{mealType}} in the template
+          };
 
         // Send email using EmailJS
         emailjs.send(
@@ -218,7 +219,8 @@ const SpecialOffers = () => {
                         adults: 1,
                         children: 0,
                         babies: 0,
-                        transfer: 'No',
+                        transfer: 'Yes',
+                        tickets: "Yes",
                         mealType: 'BB',
                     }}
                 >
@@ -287,28 +289,29 @@ const SpecialOffers = () => {
 
                     {/* Number of Persons */}
                     <Form.Item label="Number of Persons">
-                        <Form.Item
+                        <div className="person-input-container">
+                            <Form.Item
                             name="adults"
                             label="Adults (12+)"
                             rules={[{ required: true, message: 'Please input the number of adults!' }]}
-                            style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-                        >
-                            <InputNumber min={1} max={10} style={{ width: '80%' }}/>
-                        </Form.Item>
-                        <Form.Item
+                            >
+                            <InputNumber min={1} max={10} style={{ width: '100%' }} />
+                            </Form.Item>
+
+                            <Form.Item
                             name="children"
                             label="Children (2-11)"
-                            style={{ display: 'inline-block', width: 'calc(33% - 8px)', margin: '0 8px' }}
-                        >
-                            <InputNumber min={0} max={10} style={{ width: '80%' }}/>
-                        </Form.Item>
-                        <Form.Item
+                            >
+                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
+                            </Form.Item>
+
+                            <Form.Item
                             name="babies"
                             label="Babies (0-2)"
-                            style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-                        >
-                            <InputNumber min={0} max={5} style={{ width: '80%' }}/>
-                        </Form.Item>
+                            >
+                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
+                            </Form.Item>
+                        </div>
                     </Form.Item>
 
                     {/* Transfer */}
@@ -316,6 +319,18 @@ const SpecialOffers = () => {
                         name="transfer"
                         label="Transfer"
                         rules={[{ required: true, message: 'Please select if you need a transfer!' }]}
+                    >
+                        <Radio.Group>
+                            <Radio value="Yes">Yes</Radio>
+                            <Radio value="No">No</Radio>
+                        </Radio.Group>
+                    </Form.Item>
+
+                    {/* Tickets */}
+                    <Form.Item
+                        name="tickets"
+                        label="Tickets"
+                        rules={[{ required: true, message: 'Please select if you need a Tickets!' }]}
                     >
                         <Radio.Group>
                             <Radio value="Yes">Yes</Radio>
