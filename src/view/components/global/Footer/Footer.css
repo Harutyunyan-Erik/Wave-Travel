@@ -1,0 +1,78 @@
+/* Footer Component Styles */
+
+.footer {
+    background-color: #001529;  /* Dark blue color */
+    color: #fff;
+    padding: 20px 10px;  /* Adjusted padding */
+    text-align: center;  /* Center content */
+}
+
+/* Footer Titles */
+.footer-title {
+    color: #fff;  /* White color for title */
+    margin-bottom: 10px;
+    font-size: 16px;  /* Adjusted font size */
+}
+
+/* Footer Text */
+.footer-text {
+    color: #d9d9d9;  /* Lighter gray color for text */
+    font-size: 14px;  /* Set a readable font size */
+    margin-bottom: 10px;
+}
+
+/* Clickable Phone Number */
+.phone-number {
+    color: #ffffff;  /* White color for phone number */
+    text-decoration: none;  /* Remove underline */
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.phone-number:hover {
+    color: #40a9ff;  /* Light blue on hover */
+}
+
+/* Social Media Icons */
+.footer-icons a {
+    color: #fff;
+    margin-right: 20px;  /* Add space between icons */
+    transition: color 0.3s ease;
+}
+
+.footer-icons a:last-child {
+    margin-right: 0;  /* Remove margin from the last icon */
+}
+
+.footer-icons a:hover {
+    color: #40a9ff;  /* Light blue on hover */
+}
+
+/* Footer Bottom Text */
+.footer-bottom-text {
+    color: #d9d9d9;  /* Light gray color */
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Footer Copyright Text */
+.footer-copyright {
+    color: #d9d9d9;  /* Set copyright text color to white */
+    font-size: 14px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 5px;  /* Reduce padding for smaller screens */
+    }
+
+    .footer-icons a {
+        margin-right: 15px;  /* Reduce icon spacing for smaller screens */
+    }
+
+    .footer-bottom-text {
+        font-size: 12px;  /* Slightly reduce text size on mobile */
+    }
+}

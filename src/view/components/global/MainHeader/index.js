@@ -1,54 +1,33 @@
-import { useContext } from 'react';
-import { Layout, Button, Space } from 'antd';
-import DropdownMenu from './DropdownMenu/DropdownMenu';
-import UserProfile from '../../shared/UserProfile';
-import { AuthContext } from '../../../../context/AuthContext';
+// import { useContext } from 'react';
+import { Layout,  Space } from 'antd';
 import { Link } from 'react-router-dom';
+import { FaTelegramPlane, FaInstagram } from 'react-icons/fa';  // Import icons from react-icons
+// import { AuthContext } from '../../../../context/AuthContext';
+import myLogo from '../../../../core/images/logo2.jpg';
 import './index.css';
 
-
-import  myLogo  from '../../../../core/images/logo2.jpg'
-
 const MainHeader = () => {
-    const { isAuth, setIsAuth, userProfileInfo } = useContext(AuthContext);
+    // const { isAuth, setIsAuth, userProfileInfo } = useContext(AuthContext);
 
     return (
         <Layout.Header className="main_header">
             <Link to="/">
-              <img src={myLogo} alt="My Logo" className="logo" />
+                <img src={myLogo} alt="My Logo" className="logo" />
             </Link>
             
-           <Space>
-            <div>
-                {
-                    isAuth ? (
-                        <UserProfile setIsAuth={setIsAuth} userProfileInfo={userProfileInfo} />
-                    ) : (
-                        <Link to="/login">
-                            <Button>
-                                Login
-                            </Button>
-                        </Link>
-                    )
-                }
-            </div>
-            <div>
-                <DropdownMenu />
-            </div>
-
-            {/* <div>
-                {
-                    isAuth ? (
-                        <>
-                            <DropdownMenu />
-                        </>
-                    ) : ( " ")
-                }
-            </div> */}
-           </Space>
+            <Space>
+                {/* Social Media Icons with Links */}
+                <h4>Contact with us</h4>
+                <a href="https://t.me/m/EgUhwPETMmM6" target="_blank" rel="noopener noreferrer">
+                    <FaTelegramPlane size={30} style={{ color: 'white', marginRight: '20px', marginTop: "20px" }} />
+                </a>
+                
+                <a href="https://www.instagram.com/wave.travelagency?igsh=emlwYmRydW1peTE3" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram size={30} style={{ color: 'white', marginRight: '20px', marginTop: "20px" }} />
+                </a>
+            </Space>
         </Layout.Header>
-        
-    )
-}
+    );
+};
 
-export default MainHeader
+export default MainHeader;
