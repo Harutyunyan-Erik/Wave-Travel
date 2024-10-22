@@ -17,7 +17,6 @@ const MainHeader = () => {
             
             <Space>
                 {/* Social Media Icons with Links */}
-                <h4>Contact with us</h4>
                 <a href="https://t.me/m/EgUhwPETMmM6" target="_blank" rel="noopener noreferrer">
                     <FaTelegramPlane size={30} style={{ color: 'white', marginRight: '20px', marginTop: "20px" }} />
                 </a>
