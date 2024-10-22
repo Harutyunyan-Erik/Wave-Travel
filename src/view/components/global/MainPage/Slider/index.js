@@ -13,20 +13,20 @@ const Slider = () => {
         <div>
             <Carousel autoplay className="carousel_container" dots={true}>
                 <div>
-                    <img src={image1} alt="maldives" />
+                    <img src={image1} loading="lazy" alt="maldives" />
                 </div>   
                 <div>
-                    <img src={image2} alt="dubai" />
+                    <img src={image2} loading="lazy" alt="dubai" />
                 </div>                <div>
-                    <img src={image3} alt="egypt" />
+                    <img src={image3} loading="lazy" alt="egypt" />
                 </div>                <div>
-                    <img src={image4} alt="thailand" />
+                    <img src={image4} loading="lazy" alt="thailand" />
                 </div>                <div>
-                    <img src={image5} alt="bali" />
+                    <img src={image5} loading="lazy" alt="bali" />
                 </div>                <div>
-                    <img src={image6} alt="rome" />
+                    <img src={image6} loading="lazy" alt="rome" />
                 </div>                <div>
-                    <img src={image7} alt="prague" />
+                    <img src={image7} loading="lazy" alt="prague" />
                 </div>
             </Carousel>
         </div>
