@@ -1,4 +1,5 @@
 import { Carousel } from 'antd';
+import image1 from '../../../../../core/images/Slider/1.png';
 import image2 from '../../../../../core/images/Slider/2.png';
 import image3 from '../../../../../core/images/Slider/3.png';
 import image4 from '../../../../../core/images/Slider/4.png';
@@ -11,6 +12,9 @@ const Slider = () => {
     return (
         <div>
             <Carousel autoplay className="carousel_container" dots={true}>
+                <div>
+                    <img src={image1} alt="maldives" />
+                </div>   
                 <div>
                     <img src={image2} alt="dubai" />
                 </div>                <div>

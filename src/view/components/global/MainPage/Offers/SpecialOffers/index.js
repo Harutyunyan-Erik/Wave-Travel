@@ -88,7 +88,7 @@ const SpecialOffers = () => {
                             </List.Item>
                         )}
                     />
-                    <Button type="primary" onClick={() => showModal({ city: 'Abu Dhabi', hotel: 'Rixos Marina' })}>
+                    <Button type="primary" onClick={() => showModal({ city: 'Dubai', hotel: 'NH COLLECTION DUBAI THE PALM' })}>
                         More
                     </Button>
                 </div>
@@ -144,7 +144,7 @@ const SpecialOffers = () => {
                     <Divider style={{ width: "100%" }} />
                     <List
                         dataSource={[
-                            'City: Maldives',
+                            'City: Male, Maldives',
                             'Travel Nights: 7',
                             'Room Type: Sun Villa',
                             'Meal Plan: Full Board',
@@ -157,7 +157,7 @@ const SpecialOffers = () => {
                             </List.Item>
                         )}
                     />
-                    <Button type="primary" onClick={() => showModal({ city: 'Maldives', hotel: 'Villa Park Sun Island Resort' })}>
+                    <Button type="primary" onClick={() => showModal({ city: 'Male, Maldives', hotel: 'Villa Park Sun Island Resort' })}>
                         More
                     </Button>
                 </div>
@@ -178,7 +178,7 @@ const SpecialOffers = () => {
                     <Divider style={{ width: "100%" }} />
                     <List
                         dataSource={[
-                            'City: Sri Lanka',
+                            'City: Kalutara, Sri Lanka',
                             'Travel Nights: 7',
                             'Room Type: Classic Sea View',
                             'Meal Plan: All Inclusive',
@@ -191,7 +191,7 @@ const SpecialOffers = () => {
                             </List.Item>
                         )}
                     />
-                    <Button type="primary" onClick={() => showModal({ city: 'Dubai', hotel: 'Address Jumeirah Beach' })}>
+                    <Button type="primary" onClick={() => showModal({ city: 'Kalutara, Sri Lanka', hotel: 'Anantara Kalutara Resort' })}>
                         More
                     </Button>
                 </div>
@@ -266,7 +266,7 @@ const SpecialOffers = () => {
                         label="Check-in and Check-out Dates"
                         rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
                     >
-                        <RangePicker />
+                        <RangePicker style={{ width: '100%' }} />
                     </Form.Item>
 
                     {/* Budget */}
@@ -293,21 +293,21 @@ const SpecialOffers = () => {
                             rules={[{ required: true, message: 'Please input the number of adults!' }]}
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={1} max={10} />
+                            <InputNumber min={1} max={10} style={{ width: '100%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="children"
                             label="Children (2-11)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)', margin: '0 8px' }}
                         >
-                            <InputNumber min={0} max={10} />
+                            <InputNumber min={0} max={10} style={{ width: '100%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="babies"
                             label="Babies (0-2)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={0} max={5} />
+                            <InputNumber min={0} max={5} style={{ width: '100%' }}/>
                         </Form.Item>
                     </Form.Item>
 

@@ -194,7 +194,7 @@ const Favorites = () => {
                         label="Check-in and Check-out Dates"
                         rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
                     >
-                        <RangePicker />
+                        <RangePicker style={{ width: '100%' }} />
                     </Form.Item>
 
                     {/* Budget */}
@@ -221,21 +221,21 @@ const Favorites = () => {
                             rules={[{ required: true, message: 'Please input the number of adults!' }]}
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={1} max={10} />
+                            <InputNumber min={1} max={10} style={{ width: '100%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="children"
                             label="Children (2-11)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)', margin: '0 8px' }}
                         >
-                            <InputNumber min={0} max={10} />
+                            <InputNumber min={0} max={10} style={{ width: '100%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="babies"
                             label="Babies (0-2)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={0} max={5} />
+                            <InputNumber min={0} max={5} style={{ width: '100%' }}/>
                         </Form.Item>
                     </Form.Item>
 
@@ -250,6 +250,7 @@ const Favorites = () => {
                             <Radio value="No">No</Radio>
                         </Radio.Group>
                     </Form.Item>
+                    
 
                     {/* Meal Types */}
                     <Form.Item
