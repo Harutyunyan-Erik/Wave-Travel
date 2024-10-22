@@ -293,21 +293,21 @@ const SpecialOffers = () => {
                             rules={[{ required: true, message: 'Please input the number of adults!' }]}
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={1} max={10} style={{ width: '100%' }}/>
+                            <InputNumber min={1} max={10} style={{ width: '80%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="children"
                             label="Children (2-11)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)', margin: '0 8px' }}
                         >
-                            <InputNumber min={0} max={10} style={{ width: '100%' }}/>
+                            <InputNumber min={0} max={10} style={{ width: '80%' }}/>
                         </Form.Item>
                         <Form.Item
                             name="babies"
                             label="Babies (0-2)"
                             style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
                         >
-                            <InputNumber min={0} max={5} style={{ width: '100%' }}/>
+                            <InputNumber min={0} max={5} style={{ width: '80%' }}/>
                         </Form.Item>
                     </Form.Item>
 
