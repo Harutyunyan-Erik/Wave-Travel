@@ -1,11 +1,11 @@
 import { Carousel } from 'antd';
-import image1 from '../../../../../core/images/Slider/1.png';
-import image2 from '../../../../../core/images/Slider/2.png';
-import image3 from '../../../../../core/images/Slider/3.png';
-import image4 from '../../../../../core/images/Slider/4.png';
-import image5 from '../../../../../core/images/Slider/5.png';
-import image6 from '../../../../../core/images/Slider/6.png';
-import image7 from '../../../../../core/images/Slider/7.png';
+import image1 from '../../../../../core/images/SliderJPG/1.jpg';
+import image2 from '../../../../../core/images/SliderJPG/2.jpg';
+import image3 from '../../../../../core/images/SliderJPG/3.jpg';
+import image4 from '../../../../../core/images/SliderJPG/4.jpg';
+import image5 from '../../../../../core/images/SliderJPG/5.jpg';
+import image6 from '../../../../../core/images/SliderJPG/6.jpg';
+import image7 from '../../../../../core/images/SliderJPG/7.jpg';
 import './index.css';
 
 const Slider = () => {
@@ -13,24 +13,30 @@ const Slider = () => {
         <div>
             <Carousel autoplay className="carousel_container" dots={true}>
                 <div>
-                    <img src={image1} loading="lazy" alt="maldives" />
+                    <img src={image1} alt="maldives" />
                 </div>   
                 <div>
-                    <img src={image2} loading="lazy" alt="dubai" />
-                </div>                <div>
-                    <img src={image3} loading="lazy" alt="egypt" />
-                </div>                <div>
-                    <img src={image4} loading="lazy" alt="thailand" />
-                </div>                <div>
-                    <img src={image5} loading="lazy" alt="bali" />
-                </div>                <div>
-                    <img src={image6} loading="lazy" alt="rome" />
-                </div>                <div>
-                    <img src={image7} loading="lazy" alt="prague" />
+                    <img src={image2} alt="dubai" />
+                </div>
+                <div>
+                    <img src={image3} alt="egypt" />
+                </div>                
+                <div>
+                    <img src={image4} alt="thailand" />
+                </div>                
+                <div>
+                    <img src={image5} alt="bali" />
+                </div>                
+                <div>
+                    <img src={image6} alt="rome" />
+                </div>                
+                <div>
+                    <img src={image7} alt="prague" />
                 </div>
             </Carousel>
         </div>
     );
 };
+
 
 export default Slider;
