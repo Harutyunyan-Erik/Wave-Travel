@@ -95,8 +95,8 @@ const SpecialOffers = () => {
                 </div>
             </Card>
 
-                        {/* Card 1 */}
-                        <Card
+            {/* Card 2 */}
+            <Card
                 hoverable
                 className="card_container"
                 cover={
@@ -129,8 +129,9 @@ const SpecialOffers = () => {
                     </Button>
                 </div>
             </Card>
-                        {/* Card 1 */}
-                        <Card
+
+            {/* Card 3 */}
+            <Card
                 hoverable
                 className="card_container"
                 cover={
@@ -163,8 +164,9 @@ const SpecialOffers = () => {
                     </Button>
                 </div>
             </Card>
-                        {/* Card 1 */}
-                        <Card
+
+            {/* Card 4 */}
+            <Card
                 hoverable
                 className="card_container"
                 cover={
@@ -212,118 +214,120 @@ const SpecialOffers = () => {
                     layout="vertical"
                     onFinish={onFinish}
                     initialValues={{
-                        email: '',
-                        phoneNumber: '',
-                        region: selectedHotel.city,  // Pre-filled from the selected card
-                        hotel: selectedHotel.hotel,  // Pre-filled from the selected card
-                        adults: 1,
-                        children: 0,
-                        babies: 0,
-                        transfer: 'Yes',
-                        tickets: "Yes",
-                        mealType: 'BB',
+                    adults: 1,
+                    children: 0,
+                    babies: 0,
+                    transfer: "",
+                    tickets: "",
+                    mealType: 'BB',
+                    region: selectedHotel.city,
+                    hotel: selectedHotel.hotel,
                     }}
                 >
                     <h2>Send Request</h2>
-
                     {/* Email */}
                     <Form.Item
-                        name="email"
-                        label="Email"
-                        rules={[{ required: true, message: 'Please input the email!' }]}
+                    name="email"
+                    label="Email"
+                    rules={[{ required: true, message: 'Please input the email!' }]}
                     >
-                        <Input placeholder="Enter email" />
+                    <Input placeholder="Enter email" />
                     </Form.Item>
 
                     {/* Phone Number */}
                     <Form.Item
-                        name="phoneNumber"
-                        label="Phone Number"
-                        rules={[{ required: true, message: 'Please input the phone number!' }]}
+                    name="phoneNumber"
+                    label="Phone Number"
+                    rules={[{ required: true, message: 'Please input the phone number!' }]}
                     >
-                        <Input placeholder="Enter phone number" />
+                    <Input placeholder="Enter phone number" />
                     </Form.Item>
 
                     {/* Region/City */}
                     <Form.Item
-                        name="region"
-                        label="Region/City"
-                        rules={[{ required: true, message: 'Please input the region or city!' }]}
+                    name="region"
+                    label="Region/City"
+                    rules={[{ required: true, message: 'Please input the region or city!' }]}
                     >
-                        <Input placeholder="Enter region or city" />
+                    <Input placeholder="Enter region or city" />
                     </Form.Item>
 
                     {/* Hotel Name */}
                     <Form.Item
-                        name="hotel"
-                        label="Hotel Name"
-                        rules={[{ required: true, message: 'Please input the hotel name!' }]}
+                    name="hotel"
+                    label="Hotel Name"
+                    rules={[{ required: true, message: 'Please input the hotel name!' }]}
                     >
-                        <Input placeholder="Enter hotel name" />
+                    <Input placeholder="Enter hotel name" />
                     </Form.Item>
 
                     {/* Check-in and Check-out Dates */}
                     <Form.Item
-                        name="dates"
-                        label="Check-in and Check-out Dates"
-                        rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
+                    name="dates"
+                    label="Check-in and Check-out Dates"
+                    rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
                     >
-                        <RangePicker style={{ width: '100%' }} />
+                    <RangePicker 
+                        style={{ width: '100%', display: "flex", alignItems: "center" }} 
+                        popupClassName="custom-range-picker"
+                        disabledDate={(current) => current && current < new Date().setHours(0, 0, 0, 0)}  // Minimum date logic
+                        dropdownStyle={{ zIndex: 1000, maxWidth: '100%' }}  // Ensures the dropdown is properly layered and fits the screen  
+                    />
                     </Form.Item>
 
                     {/* Budget */}
                     <Form.Item
-                        name="budget"
-                        label="Budget"
-                        rules={[{ required: true, message: 'Please input your budget!' }]}
+                    name="budget"
+                    label="Budget"
+                    rules={[{ required: true, message: 'Please input your budget!' }]}
                     >
-                        <InputNumber
-                            min={0}
-                            max={100000}
-                            formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                            placeholder="Enter your budget"
-                            style={{ width: '100%' }}
-                        />
+                    <InputNumber
+                        min={0}
+                        max={100000}
+                        formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                        parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+                        placeholder="Enter your budget"
+                        style={{ width: '100%', display: "flex", alignItems: "center" }}
+                    />
                     </Form.Item>
 
                     {/* Number of Persons */}
                     <Form.Item label="Number of Persons">
-                        <div className="person-input-container">
-                            <Form.Item
-                            name="adults"
-                            label="Adults (12+)"
-                            rules={[{ required: true, message: 'Please input the number of adults!' }]}
-                            >
-                            <InputNumber min={1} max={10} style={{ width: '100%' }} />
-                            </Form.Item>
+                    <div className="person-input-container">
+                        <Form.Item
+                        name="adults"
+                        label="Adults (12+)"
+                        rules={[{ required: true, message: 'Please input the number of adults!' }]}
+                        >
+                        <InputNumber min={1} max={10} style={{ width: '100%', display: "flex", alignItems: "center" }} />
+                        </Form.Item>
 
-                            <Form.Item
-                            name="children"
-                            label="Children (2-11)"
-                            >
-                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
-                            </Form.Item>
+                        <Form.Item
+                        name="children"
+                        label="Children (2-11)"
+                        >
+                        <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
+                        </Form.Item>
 
-                            <Form.Item
-                            name="babies"
-                            label="Babies (0-2)"
-                            >
-                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
-                            </Form.Item>
-                        </div>
+                        <Form.Item
+                        name="babies"
+                        label="Babies (0-2)"
+                        >
+                        <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
+                        </Form.Item>
+                    </div>
                     </Form.Item>
 
                     {/* Transfer */}
                     <Form.Item
-                        name="transfer"
-                        label="Transfer"
-                        rules={[{ required: true, message: 'Please select if you need a transfer!' }]}
+                    name="transfer"
+                    label="Transfer"
+                    rules={[{ required: true, message: 'Please select if you need a transfer!' }]}
                     >
-                        <Radio.Group>
-                            <Radio value="Yes">Yes</Radio>
-                            <Radio value="No">No</Radio>
-                        </Radio.Group>
+                    <Radio.Group>
+                        <Radio value="Yes">Yes</Radio>
+                        <Radio value="No">No</Radio>
+                    </Radio.Group>
                     </Form.Item>
 
                     {/* Tickets */}
@@ -340,21 +344,27 @@ const SpecialOffers = () => {
 
                     {/* Meal Types */}
                     <Form.Item
-                        name="mealType"
-                        label="Meal Type"
-                        rules={[{ required: true, message: 'Please select a meal type!' }]}
+                    name="mealType"
+                    label="Meal Type"
+                    rules={[{ required: true, message: 'Please select a meal type!' }]}
                     >
-                        <Select>
-                            <Option value="BB">BB (Bed & Breakfast)</Option>
-                            <Option value="HB">HB (Half Board)</Option>
-                            <Option value="FB">FB (Full Board)</Option>
-                            <Option value="AI">AI (All Inclusive)</Option>
-                        </Select>
+                    <Select>
+                        <Option value="BB">BB (Bed & Breakfast)</Option>
+                        <Option value="HB">HB (Half Board)</Option>
+                        <Option value="FB">FB (Full Board)</Option>
+                        <Option value="AI">AI (All Inclusive)</Option>
+                    </Select>
+                    </Form.Item>
+
+                    {/* Submit Button */}
+                    <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
                     </Form.Item>
                 </Form>
             </Modal>
 
-            {/* Repeat the card and modal for other offers */}
         </div>
     );
 };

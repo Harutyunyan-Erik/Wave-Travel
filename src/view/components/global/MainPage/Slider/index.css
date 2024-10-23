@@ -29,7 +29,7 @@
     object-fit: cover;
     object-position: center;
     max-height: 450px; /* Increased max height for larger displays */
-    border-radius: 30px; /* Ensure the images inherit the same border radius */
+    border-radius: 20px; /* Ensure the images inherit the same border radius */
 }
 
 /* Media queries for responsiveness */
@@ -37,7 +37,7 @@
     .carousel_container {
         max-width: 100%;
         height: auto;
-        border-radius: 20px; /* Slightly smaller radius for medium screens */
+        border-radius: 30px; /* Slightly smaller radius for medium screens */
     }
 
     .carousel_container img {

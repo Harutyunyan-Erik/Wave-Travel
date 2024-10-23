@@ -92,6 +92,11 @@ const Favorites = () => {
         });
     };
 
+    // Function to disable past dates
+    const disabledDate = (current) => {
+        return current && current < new Date().setHours(0, 0, 0, 0);
+    };
+
     return (
         <div className="card_grid">
             {/* Render each card from the hotels array */}
@@ -127,32 +132,29 @@ const Favorites = () => {
 
             {/* Modal for sending a request */}
             <Modal 
-                title="Send Request" 
+                title={`Send Request for ${selectedHotel.title}`}  // Display the hotel name in the modal title
                 open={isModalOpen} 
-                onOk={handleOk}  // When OK is clicked, submit the form
+                onOk={handleOk}  
                 onCancel={handleCancel}
-                okText="OK"  // Label for the submit button
-                cancelText="Cancel"  // Label for the cancel button
+                okText="OK"  
+                cancelText="Cancel"  
             >
                 <Form
                     form={form}
                     layout="vertical"
                     onFinish={onFinish}
                     initialValues={{
-                        email: '',
-                        phoneNumber: '',
-                        region: selectedHotel.location,  // Pre-filled from the selected card
-                        hotel: selectedHotel.title,  // Pre-filled from the selected card
                         adults: 1,
                         children: 0,
                         babies: 0,
-                        transfer: 'Yes',
-                        tickets: "Yes",
+                        transfer: "",
+                        tickets: "",
                         mealType: 'BB',
+                        region: selectedHotel.location,  // Pre-fill Region/City with selected hotel's location
+                        hotel: selectedHotel.title,      // Pre-fill Hotel Name with selected hotel's title
                     }}
                 >
-                    <h2>Send Request</h2>
-
+                    <h2>Send Request for {selectedHotel.title}</h2>
                     {/* Email */}
                     <Form.Item
                         name="email"
@@ -175,7 +177,7 @@ const Favorites = () => {
                     <Form.Item
                         name="region"
                         label="Region/City"
-                        initialValue={selectedHotel.location}  // Pre-fill with the selected hotel's location
+                        rules={[{ required: true, message: 'Please input the region or city!' }]}
                     >
                         <Input placeholder="Enter region or city" />
                     </Form.Item>
@@ -184,7 +186,7 @@ const Favorites = () => {
                     <Form.Item
                         name="hotel"
                         label="Hotel Name"
-                        initialValue={selectedHotel.title}  // Pre-fill with the selected hotel's title
+                        rules={[{ required: true, message: 'Please input the hotel name!' }]}
                     >
                         <Input placeholder="Enter hotel name" />
                     </Form.Item>
@@ -195,7 +197,12 @@ const Favorites = () => {
                         label="Check-in and Check-out Dates"
                         rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
                     >
-                        <RangePicker style={{ width: '100%' }} />
+                        <RangePicker 
+                            style={{ width: '100%', display: "flex", alignItems: "center" }} 
+                            popupClassName="custom-range-picker"
+                            disabledDate={disabledDate}  // Disable past dates
+                            dropdownStyle={{ zIndex: 1000, maxWidth: '100%' }}  
+                        />
                     </Form.Item>
 
                     {/* Budget */}
@@ -210,7 +217,7 @@ const Favorites = () => {
                             formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                             parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
                             placeholder="Enter your budget"
-                            style={{ width: '100%' }}
+                            style={{ width: '100%', display: "flex", alignItems: "center" }}
                         />
                     </Form.Item>
 
@@ -218,25 +225,25 @@ const Favorites = () => {
                     <Form.Item label="Number of Persons">
                         <div className="person-input-container">
                             <Form.Item
-                            name="adults"
-                            label="Adults (12+)"
-                            rules={[{ required: true, message: 'Please input the number of adults!' }]}
+                                name="adults"
+                                label="Adults (12+)"
+                                rules={[{ required: true, message: 'Please input the number of adults!' }]}
                             >
-                            <InputNumber min={1} max={10} style={{ width: '100%' }} />
+                                <InputNumber min={1} max={10} style={{ width: '100%', display: "flex", alignItems: "center" }} />
                             </Form.Item>
 
                             <Form.Item
-                            name="children"
-                            label="Children (2-11)"
+                                name="children"
+                                label="Children (2-11)"
                             >
-                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
+                                <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
                             </Form.Item>
 
                             <Form.Item
-                            name="babies"
-                            label="Babies (0-2)"
+                                name="babies"
+                                label="Babies (0-2)"
                             >
-                            <InputNumber min={0} max={5} style={{ width: '100%' }} />
+                                <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
                             </Form.Item>
                         </div>
                     </Form.Item>
@@ -264,7 +271,6 @@ const Favorites = () => {
                             <Radio value="No">No</Radio>
                         </Radio.Group>
                     </Form.Item>
-                    
 
                     {/* Meal Types */}
                     <Form.Item
@@ -278,6 +284,13 @@ const Favorites = () => {
                             <Option value="FB">FB (Full Board)</Option>
                             <Option value="AI">AI (All Inclusive)</Option>
                         </Select>
+                    </Form.Item>
+
+                    {/* Submit Button */}
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
                     </Form.Item>
                 </Form>
             </Modal>
