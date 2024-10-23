@@ -160,3 +160,50 @@
 .card_container .ant-btn-primary:hover {
     background-color: #0056b3;
 }
+
+
+@media (max-width: 2000px) {
+  /* Set smaller width for input on mobile */
+  .custom-range-picker {
+    width: 280px !important;
+  }
+  .ant-picker-date-panel{
+    width: 280px !important;
+  }
+
+  /* Ensure the header (navigation buttons) is spaced correctly */
+  .ant-picker-header {
+    display: flex;
+    justify-content: space-between; /* Space the navigation buttons properly */
+    padding: 0 10px; /* Add padding to the header for spacing */
+  }
+
+  /* Ensure the navigation buttons are visible and aligned */
+  .ant-picker-header-super-prev-btn,
+  .ant-picker-header-super-next-btn,
+  .ant-picker-header-prev-btn,
+  .ant-picker-header-next-btn {
+    display: inline-block;
+    visibility: visible !important;  /* Ensure that navigation buttons are always visible */
+  }
+
+  /* Add padding around the navigation buttons */
+  .ant-picker-header-prev-btn,
+  .ant-picker-header-next-btn {
+    padding: 0 8px;  /* Extra padding for the next/previous buttons */
+  }
+
+  .ant-picker-header-super-prev-btn,
+  .ant-picker-header-super-next-btn {
+    padding: 0 8px;  /* Extra padding for the super next/previous buttons */
+  }
+
+  /* Modify the picker panels for smaller screens */
+  .ant-picker-panels {
+    width: 280px; /* Slightly larger to ensure space for next/super next buttons */
+    height: auto;
+    max-height: 400px; /* Adjust height automatically for smaller screens */
+  }
+}
+
+

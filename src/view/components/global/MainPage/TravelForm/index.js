@@ -1,35 +1,39 @@
 import React from 'react';
 import { Form, Input, Button, DatePicker, InputNumber, Radio, Select, message } from 'antd';
-import emailjs from 'emailjs-com'; // Import EmailJS SDK
+import emailjs from 'emailjs-com'; 
 import './index.css';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
+// Function to disable past dates in RangePicker
+const disabledDate = (current) => {
+  // Can not select days before today and today
+  return current && current < new Date().setHours(0, 0, 0, 0);
+};
+
 const TravelForm = () => {
   const [form] = Form.useForm();
-
 
   // Handle form submission
   const onFinish = (values) => {
     console.log('Received values from form: ', values);
 
     // Prepare email parameters
-// Prepare email parameters
-const emailParams = {
-  email: values.email,                 // Corresponds to {{email}} in the template
-  phone: values.phoneNumber,           // Corresponds to {{phone}} in the template
-  region: values.region,               // Corresponds to {{region}} in the template
-  hotel: values.hotel,                 // Corresponds to {{hotel}} in the template
-  dates: values.dates ? values.dates.map(date => date.format('YYYY-MM-DD')).join(' to ') : '',
-  budget: `$${values.budget}`,          // Corresponds to {{budget}} in the template
-  adults: values.adults,               // Corresponds to {{adults}} in the template
-  children: values.children,           // Corresponds to {{children}} in the template
-  babies: values.babies,               // Corresponds to {{babies}} in the template
-  transfer: values.transfer,           // Corresponds to {{transfer}} in the template
-  tickets: values.tickets,
-  mealType: values.mealType,           // Corresponds to {{mealType}} in the template
-};
+    const emailParams = {
+      email: values.email,                 // Corresponds to {{email}} in the template
+      phone: values.phoneNumber,           // Corresponds to {{phone}} in the template
+      region: values.region,               // Corresponds to {{region}} in the template
+      hotel: values.hotel,                 // Corresponds to {{hotel}} in the template
+      dates: values.dates ? values.dates.map(date => date.format('YYYY-MM-DD')).join(' to ') : '',
+      budget: `$${values.budget}`,         // Corresponds to {{budget}} in the template
+      adults: values.adults,               // Corresponds to {{adults}} in the template
+      children: values.children,           // Corresponds to {{children}} in the template
+      babies: values.babies,               // Corresponds to {{babies}} in the template
+      transfer: values.transfer,           // Corresponds to {{transfer}} in the template
+      tickets: values.tickets,             // Corresponds to {{tickets}} in the template
+      mealType: values.mealType,           // Corresponds to {{mealType}} in the template
+    };
 
     // Send email using EmailJS
     emailjs.send(
@@ -47,7 +51,6 @@ const emailParams = {
     });
   };
 
-
   return (
     <div className="form-container">
       <Form
@@ -58,12 +61,13 @@ const emailParams = {
           adults: 1,
           children: 0,
           babies: 0,
-          transfer: 'Yes',
-          tickets: "Yes",
+          transfer: "",
+          tickets: "",
           mealType: 'BB',
         }}
       >
         <h2>Send Request</h2>
+
         {/* Email */}
         <Form.Item
           name="email"
@@ -106,7 +110,12 @@ const emailParams = {
           label="Check-in and Check-out Dates"
           rules={[{ required: true, message: 'Please select your check-in and check-out dates!' }]}
         >
-          <RangePicker style={{ width: '100%' }} />
+          <RangePicker 
+            style={{ width: '100%', display: "flex", alignItems: "center" }} 
+            popupClassName="custom-range-picker"
+            disabledDate={disabledDate}  // Apply disabledDate function to disable past dates
+            dropdownStyle={{ zIndex: 1000, maxWidth: '100%' }}  // Ensures the dropdown is properly layered and fits the screen  
+          />
         </Form.Item>
 
         {/* Budget */}
@@ -121,7 +130,7 @@ const emailParams = {
             formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
             placeholder="Enter your budget"
-            style={{ width: '100%' }}
+            style={{ width: '100%', display: "flex", alignItems: "center" }}
           />
         </Form.Item>
 
@@ -133,25 +142,24 @@ const emailParams = {
               label="Adults (12+)"
               rules={[{ required: true, message: 'Please input the number of adults!' }]}
             >
-              <InputNumber min={1} max={10} style={{ width: '100%' }} />
+              <InputNumber min={1} max={10} style={{ width: '100%', display: "flex", alignItems: "center" }} />
             </Form.Item>
 
             <Form.Item
               name="children"
               label="Children (2-11)"
             >
-              <InputNumber min={0} max={5} style={{ width: '100%' }} />
+              <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
             </Form.Item>
 
             <Form.Item
               name="babies"
               label="Babies (0-2)"
             >
-              <InputNumber min={0} max={5} style={{ width: '100%' }} />
+              <InputNumber min={0} max={5} style={{ width: '100%', display: "flex", alignItems: "center" }} />
             </Form.Item>
           </div>
         </Form.Item>
-
 
         {/* Transfer */}
         <Form.Item
@@ -170,7 +178,7 @@ const emailParams = {
         <Form.Item
             name="tickets"
             label="Tickets"
-            rules={[{ required: true, message: 'Please select if you need a Tickets!' }]}
+            rules={[{ required: true, message: 'Please select if you need tickets!' }]}
         >
             <Radio.Group>
                 <Radio value="Yes">Yes</Radio>
