@@ -106,6 +106,23 @@
 
 
 input, select, textarea, .ant-picker-input {
-  font-size: 16px !important; /* Prevents zooming on focus */
+  font-size: 22px !important; /* Prevents zooming on focus */
   caret-color: auto; /* Ensures proper text cursor behavior */
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+    background: #eee;
+  }
 }
