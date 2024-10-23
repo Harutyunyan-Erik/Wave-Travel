@@ -105,23 +105,19 @@
 }
 
 
-input, select, textarea, .ant-picker-input {
-  font-size: 22px !important; /* Prevents zooming on focus */
-  caret-color: auto; /* Ensures proper text cursor behavior */
+/* Prevent zoom on input focus by setting a minimum font size */
+input, select, textarea, .ant-picker-input input {
+  font-size: 16px; /* Ensure the font size is at least 16px to avoid zoom */
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  select,
-  textarea,
-  input {
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select, textarea, input, .ant-picker-input input {
     font-size: 16px;
   }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  select:focus,
-  textarea:focus,
-  input:focus {
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select:focus, textarea:focus, input:focus, .ant-picker-input input:focus {
     font-size: 16px;
     background: #eee;
   }
