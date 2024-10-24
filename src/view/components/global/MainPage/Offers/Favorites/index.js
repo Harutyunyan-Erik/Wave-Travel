@@ -154,7 +154,6 @@ const Favorites = () => {
                         hotel: selectedHotel.title,      // Pre-fill Hotel Name with selected hotel's title
                     }}
                 >
-                    <h2>Send Request for {selectedHotel.title}</h2>
                     {/* Email */}
                     <Form.Item
                         name="email"
@@ -284,13 +283,6 @@ const Favorites = () => {
                             <Option value="FB">FB (Full Board)</Option>
                             <Option value="AI">AI (All Inclusive)</Option>
                         </Select>
-                    </Form.Item>
-
-                    {/* Submit Button */}
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">
-                            Submit
-                        </Button>
                     </Form.Item>
                 </Form>
             </Modal>

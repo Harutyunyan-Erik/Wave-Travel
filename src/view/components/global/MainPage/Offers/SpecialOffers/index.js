@@ -224,7 +224,6 @@ const SpecialOffers = () => {
                     hotel: selectedHotel.hotel,
                     }}
                 >
-                    <h2>Send Request</h2>
                     {/* Email */}
                     <Form.Item
                     name="email"
@@ -354,13 +353,6 @@ const SpecialOffers = () => {
                         <Option value="FB">FB (Full Board)</Option>
                         <Option value="AI">AI (All Inclusive)</Option>
                     </Select>
-                    </Form.Item>
-
-                    {/* Submit Button */}
-                    <Form.Item>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
                     </Form.Item>
                 </Form>
             </Modal>
